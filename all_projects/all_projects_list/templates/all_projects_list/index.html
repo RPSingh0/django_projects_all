@@ -11,9 +11,9 @@
 <body>
     {% for item in project_list %}
     <div class ="project_list_item">
-        <li>{{ item.project_name }}</li>
-        <li>{{ item.project_desc }}</li>
-        <li>{{ item.project_link }}</li>
+        <li>Project Name: {{ item.project_name }}</li>
+        <li>About: {{ item.project_desc }}</li>
+        <li>Click here to view the code: {{ item.project_link }}</li>
     </div>
     {% endfor %}
 </body>

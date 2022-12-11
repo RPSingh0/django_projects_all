@@ -1,4 +1,9 @@
 from django.contrib import admin
 from . import models
 
-admin.site.register(models.ProjectList)
+
+class ProjectListAdmin(admin.ModelAdmin):
+    list_display = ("project_name", "project_desc")
+
+
+admin.site.register(models.ProjectList, ProjectListAdmin)
