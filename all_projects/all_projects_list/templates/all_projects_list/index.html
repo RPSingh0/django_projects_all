@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project List</title>
+    <link rel="stylesheet" href="{% static 'all_projects_list/index.css' %}">
+</head>
+<body>
+    {% for item in project_list %}
+    <div class ="project_list_item">
+        <li>{{ item.project_name }}</li>
+        <li>{{ item.project_desc }}</li>
+        <li>{{ item.project_link }}</li>
+    </div>
+    {% endfor %}
+</body>
+</html>
