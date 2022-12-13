@@ -1,20 +1,21 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project List</title>
+
+{% block title %}
+    Project List
+{% endblock title %}
+
+{% block css_files %}
     <link rel="stylesheet" href="{% static 'all_projects_list/index.css' %}">
-</head>
-<body>
-    {% for item in project_list %}
+{% endblock css_files %}
+    
+{% block content %}
+{% for item in project_list %}
     <div class ="project_list_item">
         <li>Project Name: {{ item.project_name }}</li>
         <li>About: {{ item.project_desc }}</li>
         <li>Click here to view the code: {{ item.project_link }}</li>
     </div>
-    {% endfor %}
-</body>
-</html>
+{% endfor %}
+<a href="{% url 'add-new-project' %}"><button name = "new_project">Add New Project Details</button></a>
+{% endblock content %}
