@@ -15,6 +15,7 @@
         <li>Project Name: {{ item.project_name }}</li>
         <li>About: {{ item.project_desc }}</li>
         <li>Click here to view the code: {{ item.project_link }}</li>
+        <a href="{% url 'show-user' item.belongs_to.slug %}"><button>Show User</button></a>
     </div>
 {% endfor %}
 <a href="{% url 'add-new-project' %}"><button name = "new_project">Add New Project Details</button></a>

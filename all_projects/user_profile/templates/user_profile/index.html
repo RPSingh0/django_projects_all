@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ user.user_name }}
+{% endblock title %}
+
+{% block content %}
+    <h1>{{ user.user_name }}</h1>
+    <h2>Email: {{ user.professional_email }}</h2>
+    <h2>Linkedin: {{ user.linkedin_url }}</h2>
+    <h2>Github: {{ user.github_url }}</h2>
+    <h2>Leetcode: {{ user.leetcode_handle }}</h2>
+    <h2>HackerRank: {{ user.hackerrank_handle }}</h2>
+    <h2>HackerEarth: {{ user.hackerearth_handle }}</h2>
+{% endblock content %}

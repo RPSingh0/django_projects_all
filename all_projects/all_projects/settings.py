@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-%*l-7gis(s#v_x)(g2p8$&j_&k%0n_kb^bl8e!#6(t7(dagwh_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["88a2-103-253-151-36.in.ngrok.io", "127.0.0.1"]
+# CSRF_TRUSTED_ORIGINS = ["https://*.in.ngrok.io/"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'all_projects_list',
+    'user_profile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

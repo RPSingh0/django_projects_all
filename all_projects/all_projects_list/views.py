@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import FormView
 from . import models
+from . import forms
 
 
 class ListAllProjects(ListView):
@@ -21,4 +22,8 @@ class AddNewProject(FormView):
 
     form_class = forms.AddNewProject
     template_name = "all_projects_list/add_new_project.html"
-#     success_url = reverse("list-all-projects")
+    success_url = "/"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

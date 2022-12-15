@@ -5,5 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-    ...
+<form method = "POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type = "submit">Submit</button>
+</form>
+    
 {% endblock content %}
