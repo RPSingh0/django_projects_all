@@ -12,4 +12,14 @@
     <h2>Leetcode: {{ user.leetcode_handle }}</h2>
     <h2>HackerRank: {{ user.hackerrank_handle }}</h2>
     <h2>HackerEarth: {{ user.hackerearth_handle }}</h2>
+    <hr>
+    <h1>Below are the list of projects made by me:</h1>
+    {% for project in user.projectlist_set.all %}
+            <div class ="project_list_item">
+                <li>Project Name: {{ project.project_name }}</li>
+                <li>About: {{ project.project_desc }}</li>
+                <li>Click here to view the code: {{ project.project_link }}</li>
+            </div>
+    {% endfor %}
+    <hr><br>
 {% endblock content %}
