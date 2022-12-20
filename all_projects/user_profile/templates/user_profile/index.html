@@ -1,17 +1,62 @@
 {% extends 'base.html' %}
+{% load tailwind_tags %}
 
 {% block title %}
     {{ user.user_name }}
 {% endblock title %}
 
+{% block css_files %}
+        {% tailwind_css %}
+{% endblock css_files %}
+
 {% block content %}
-    <h1>{{ user.user_name }}</h1>
-    <h2>Email: {{ user.professional_email }}</h2>
-    <h2>Linkedin: {{ user.linkedin_url }}</h2>
-    <h2>Github: {{ user.github_url }}</h2>
-    <h2>Leetcode: {{ user.leetcode_handle }}</h2>
-    <h2>HackerRank: {{ user.hackerrank_handle }}</h2>
-    <h2>HackerEarth: {{ user.hackerearth_handle }}</h2>
+<div class ="grid place-items-center bg-teal-600">
+    <h1 class = "text-3xl text-gray-900 dark:text-black ">{{ user.user_name }}</h1>
+</div>
+
+<div class="container mx-auto">
+    <div class = "grid lg:grid-cols-3 gap-6">
+
+{% comment "for email" %}{% endcomment %}
+<div>
+    <a href="mailto:{{user.professional_email}}"><button type="button" class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Email</button></a>
+    <h2>{{ user.professional_email }}</h2>
+</div>
+    
+{% comment "for linkedin" %}{% endcomment %}
+<div>
+    <a href="{{user.linkedin_url}}"><button type="button" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Linkedin</button></a>
+    <h2>{{ user.linkedin_url }}</h2>
+</div>
+
+{% comment "for github" %}{% endcomment %}
+<div>
+    <a href="{{user.github_url}}"><button type="button" class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Github</button></a>
+    <h2>{{ user.github_url }}</h2>
+</div>
+
+{% comment "for leetcode" %}{% endcomment %}
+<div>
+    <a href="https://leetcode.com/{{user.leetcode_handle}}"><button type="button" class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">Leetcode</button></a>
+    <h2>@{{ user.leetcode_handle }}</h2>
+</div>
+
+{% comment "for hackerrank" %}{% endcomment %}
+<div>
+    <a href="https://www.hackerrank.com/{{user.hackerrank_handle}}"><button type="button" class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">HackerRank</button></a>
+    <h2>{{ user.hackerrank_handle }}</h2>
+</div>
+
+{% comment "for hackerearth" %}{% endcomment %}
+<div>
+    <a href="https://www.hackerearth.com/{{user.hackerearth_handle}}"><button type="button" class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">HackerEarth</button></a>
+    <h2>{{ user.hackerearth_handle }}</h2>
+</div>
+
+</div>
+</div>
+
+
     <hr>
     <h1>Below are the list of projects made by me:</h1>
     {% for project in user.projectlist_set.all %}

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%*l-7gis(s#v_x)(g2p8$&j_&k%0n_kb^bl8e!#6(t7(dagwh_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["88a2-103-253-151-36.in.ngrok.io", "127.0.0.1"]
+# ALLOWED_HOSTS = ["82c6-103-253-150-16.in.ngrok.io", "127.0.0.1"]
 # CSRF_TRUSTED_ORIGINS = ["https://*.in.ngrok.io/"]
 
 
@@ -34,6 +34,9 @@ DEBUG = True
 INSTALLED_APPS = [
     'all_projects_list',
     'user_profile',
+    'tailwind',
+    'theme',
+    'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -130,3 +134,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
