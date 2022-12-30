@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%*l-7gis(s#v_x)(g2p8$&j_&k%0n_kb^bl8e!#6(t7(dagwh_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ["82c6-103-253-150-16.in.ngrok.io", "127.0.0.1"]
+# ALLOWED_HOSTS = ["b4f1-103-253-150-152.in.ngrok.io", "127.0.0.1"]
 # CSRF_TRUSTED_ORIGINS = ["https://*.in.ngrok.io/"]
 
 
