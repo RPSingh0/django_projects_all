@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load tailwind_tags %}
 
 {% block title %}
@@ -10,7 +11,8 @@
 {% endblock css_files %}
 
 {% block content %}
-<div class="grid place-items-center bg-teal-600">
+<div class="grid grid-cols-2">
+    <img class="mx-auto h-20 w-22 transition-shadow ease-in-out duration-300 hover:shadow-2xl rounded-full" src="{{ user.user_image.url }}" alt="">
     <h1 class="text-3xl text-gray-900 dark:text-black ">{{ user.user_name }}</h1>
 </div>
 
@@ -19,61 +21,51 @@
 
         {% comment "for email" %}{% endcomment %}
         <div>
-            <a href="mailto:{{user.professional_email}}"><button type="button"
-                    class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Email</button></a>
-            <h2>{{ user.professional_email }}</h2>
+            <a href="mailto:{{user.professional_email}}"><img class="mx-auto h-14" src="{% static 'platform_logos/gmail.svg' %}" alt=""></a>
+            <h2 class="text-center">{{ user.professional_email }}</h2>
         </div>
 
         {% comment "for linkedin" %}{% endcomment %}
         <div>
-            <a href="https://www.linkedin.com/in/{{user.linkedin_url}}" target="_blank"><button type="button"
-                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Linkedin</button></a>
-            <h2>@{{ user.linkedin_handle }}</h2>
+            <a href="https://www.linkedin.com/in/{{user.linkedin_url}}" target="_blank"><img class="mx-auto h-14" src="{% static 'platform_logos/linkedin.svg' %}" alt=""></a>
+            <h2 class="text-center">{{ user.linkedin_handle }}</h2>
         </div>
+
 
         {% comment "for github" %}{% endcomment %}
         <div>
-            <a href="{{user.github_url}}" target="_blank"><button type="button"
-                    class="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Github</button></a>
-            <h2>@{{ user.github_handle }}</h2>
+            <a href="https://github.com/{{ user.github_handle }}" target="_blank"><img class="mx-auto h-14" src="{% static 'platform_logos/github.png' %}" alt=""></a>
+            <h2 class="text-center">@{{ user.github_handle }}</h2>
         </div>
 
         {% comment "for leetcode" %}{% endcomment %}
         <div>
-            <a href="https://leetcode.com/{{user.leetcode_handle}}" target="_blank"><button type="button"
-                    class="inline-block px-6 py-2.5 bg-blue-400 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-600 active:shadow-lg transition duration-150 ease-in-out">Leetcode</button></a>
-            <h2>@{{ user.leetcode_handle }}</h2>
+            <a href="https://leetcode.com/{{user.leetcode_handle}}" target="_blank"><img class="mx-auto h-14" src="{% static 'platform_logos/leetcode.png' %}" alt=""></a>
+            <h2 class="text-center">@{{ user.leetcode_handle }}</h2>
         </div>
 
         {% comment "for hackerrank" %}{% endcomment %}
         <div>
-            <a href="https://www.hackerrank.com/{{user.hackerrank_handle}}" target="_blank"><button type="button"
-                    class="inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">HackerRank</button></a>
-            <h2>{{ user.hackerrank_handle }}</h2>
+            <a href="https://www.hackerrank.com/{{user.hackerrank_handle}}" target="_blank"><img class="mx-auto h-14" src="{% static 'platform_logos/hackerrank.png' %}" alt=""></a>
+            <h2 class="text-center">@{{ user.hackerrank_handle }}</h2>
         </div>
 
         {% comment "for hackerearth" %}{% endcomment %}
         <div>
-            <a href="https://www.hackerearth.com/{{user.hackerearth_handle}}" target="_blank"><button type="button"
-                    class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out">HackerEarth</button></a>
-            <h2>{{ user.hackerearth_handle }}</h2>
+            <a href="https://www.hackerearth.com/{{user.hackerearth_handle}}" target="_blank"><img class="mx-auto h-14" src="{% static 'platform_logos/hackerearth.png' %}" alt=""></a>
+            <h2 class="text-center">@{{ user.hackerearth_handle }}</h2>
         </div>
 
     </div>
 </div>
 
-<div class="container">
-    <div>
+
+    <div class="calender">
         <hr>
         <h2>Github Contribution Graph: ({{ user.user_name }})</h2>
-        <!-- Include the library. -->
         <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
         </script>
-
-        <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
         <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
-
-        <!-- Prepare a container for your calendar. -->
         <div class="calendar">
             <!-- Loading stuff -->
             Loading the data just for you.
@@ -94,33 +86,41 @@
         </script>
         <hr>
     </div>
-</div>
 
-<div class="container ">
-    <h1 class = "text-8xl">Leetcode Stats</h1>
-        <hr>
-    {% if leetcode_stats.error == None %}
-        <div class="grid lg:grid-cols-3 gap-6">
-        <p class = "font-bold">Easy Solved: {{ leetcode_stats.easy }}</p>
-        <p class = "font-bold">Medium Solved: {{ leetcode_stats.medium }}</p>
-        <p class = "font-bold">Hard Solved: {{ leetcode_stats.hard }}</p>
-        <p class = "font-bold">Total Solved: {{ leetcode_stats.totalSolved }}</p>
-        <p class = "font-bold">Rank: {{ leetcode_stats.rank }}</p>
-        <p class = "font-bold">Total Submissions (this year): {{ leetcode_stats.total_submissions_this_year }}</p>
+
+<p class="text-center font-bold text-5xl">Leetcode Stats</p>
+{% if leetcode_stats.error == None %}
+<div class="grid lg:grid-cols-3 gap-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <p class="font-bold">Easy Solved: {{ leetcode_stats.easy }}</p>
+    <p class="font-bold">Medium Solved: {{ leetcode_stats.medium }}</p>
+    <p class="font-bold">Hard Solved: {{ leetcode_stats.hard }}</p>
+    <p class="font-bold">Total Solved: {{ leetcode_stats.totalSolved }}</p>
+    <p class="font-bold">Rank: {{ leetcode_stats.rank }}</p>
+    <p class="font-bold">Total Submissions (this year): {{ leetcode_stats.total_submissions_this_year }}</p>
+</div>
+{% else %}
+<p class="font-bold">Leetcode data is not available, please check leetcode handle</p>
+{% endif %}
+
+<h2 class="text-center font-bold text-5xl">Below are the list of projects made by me:</h2>
+<div class="grid grid-cols-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    {% for project in user.projectlist_set.all %}
+    <div>
+        <p class="font-bold text-2xl">{{ project.project_name }}</p>
+        <li>About: {{ project.project_desc }}</li>
+        <li>Click here to view the code: {{ project.project_link }}</li>
     </div>
-    {% else %}
-        <p class ="font-bold">Leetcode data is not available, please check leetcode handle</p>
-    {% endif %}
-    <hr>
+    {% endfor %}
 </div>
 
-<h1>Below are the list of projects made by me:</h1>
-{% for project in user.projectlist_set.all %}
-<div class="project_list_item">
-    <li>Project Name: {{ project.project_name }}</li>
-    <li>About: {{ project.project_desc }}</li>
-    <li>Click here to view the code: {{ project.project_link }}</li>
+<h2 class="text-center font-bold text-5xl">Technologies I have worked with</h2>
+
+<div class="grid grid-cols-4">
+    {% for tech in user.tech_worked_with.all %}
+    <div class="object-center bg-blend backdrop-blur-md">
+        <img class="mx-auto animate-bounce h-16" src="{{ tech.tech_logo.url }}" alt="">
+        <p class="font-bold text-2xl text-center">{{ tech.tech_name }}</p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-<hr><br>
 {% endblock content %}

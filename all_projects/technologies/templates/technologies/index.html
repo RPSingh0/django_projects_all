@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tailwind_tags %}
+
+{% block title %}
+    Available Technologies
+{% endblock title %}
+
+{% block css_files %}
+    {% tailwind_css %}
+{% endblock css_files %}
+
+{% block content %}
+<div class = "container">
+    <div class = "grid grid-cols-3">
+    {% for tech in tech_list %}
+        <div class = "object-center ">
+            <img class = "mx-auto animate-bounce h-16" src="{{ tech.tech_logo.url }}" alt="">
+            <p class = "font-bold text-2xl text-center">{{ tech.tech_name }}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}

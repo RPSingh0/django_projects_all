@@ -17,5 +17,6 @@ class ShowUser(DetailView):
             f"https://leetcode-stats-api.herokuapp.com/{context['user'].leetcode_handle}")
         leetcode_stats = helper_functions.get_leetcode_data_from_response_object(
             leetcode_stats)
+
         context['leetcode_stats'] = leetcode_stats
         return context

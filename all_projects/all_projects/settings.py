@@ -34,6 +34,7 @@ DEBUG = True
 INSTALLED_APPS = [
     'all_projects_list',
     'user_profile',
+    'technologies',
     'tailwind',
     'theme',
     'django_browser_reload',
@@ -134,6 +135,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+MEDIA_ROOT = BASE_DIR / "uploads"
+MEDIA_URL = "/user-media/"
 
 TAILWIND_APP_NAME = 'theme'
 
