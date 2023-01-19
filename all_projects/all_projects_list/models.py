@@ -1,5 +1,6 @@
 from django.db import models
 from user_profile import models as user_models
+from technologies import models as tech_models
 
 
 class ProjectList(models.Model):
@@ -9,6 +10,8 @@ class ProjectList(models.Model):
 
     belongs_to = models.ForeignKey(
         to=user_models.UserProfile, null=True, blank=True, on_delete=models.SET_NULL)
+
+    technologies_used = models.ManyToManyField(to=tech_models.TechnologiesList)
 
     def __str__(self) -> str:
         return self.project_name
