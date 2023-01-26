@@ -10,6 +10,7 @@
 {% tailwind_css %}
 {% endblock css_files %}
 
+{% block body_background %}"bg-gradient-to-r from-red-500 via-purple-500 to-green-500"{% endblock body_background %}
 {% block content %}
 <div class="grid grid-cols-2">
     <img class="mx-auto h-20 w-22 transition-shadow ease-in-out duration-300 hover:shadow-2xl rounded-full" src="{{ user.user_image.url }}" alt="">
